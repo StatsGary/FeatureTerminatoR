@@ -1,1 +1,1 @@
-utils::globalVariables(c("quantiles", "quantile_range", "Correlation cut off"))
+utils::globalVariables(c("quantiles", "quantile_range", "corr_cut_off"))

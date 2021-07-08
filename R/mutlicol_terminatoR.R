@@ -15,16 +15,19 @@
 #' \item{\strong{"rfe_original_data"}}{ a data.frame object with the original data passed for manual exclusion based on fit outputs}
 #' \item{\strong{"rfe_reduced_data"}}{output of setting the alter_df=TRUE will remove the features / IVs from the data.frame}
 #' }
-#' @import caret stats ggplot2
+#' @import caret stats ggplot2 lattice
 #' @importFrom dplyr tibble
 #' @references Allen (1997) The problem of Multicollinearity. In: Understanding Regression Analysis. Springer, Boston, MA. \url{https://doi.org/10.1007/978-0-585-25657-3_37}
 #' @examples
+#' \dontrun{
 #'library(caret)
+#'library(FeatureTerminatoR)
 #'library(tibble)
 #'library(dplyr)
 #'df <- iris
 #'results <- mutlicol_terminator(df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
 # print(results) #Prints out the full list of results
+#'}
 
 mutlicol_terminator <- function(df, x_cols, y_cols, alter_df = TRUE, cor_sig=0.9){
 
@@ -32,13 +35,6 @@ mutlicol_terminator <- function(df, x_cols, y_cols, alter_df = TRUE, cor_sig=0.9
     stop("The input of df needs to be a data.frame object.")
   }
 
-  if(x_cols == "" || length(x_cols)==0){
-    stop("Please enter either the index location of the independent variables to use.\nOr the column names passed as a vector()")
-  }
-
-  if(y_cols == "" || length(y_cols)==0){
-    stop("Please enter either the index location of the dependent variables to use.\nOr the column names passed as a vector()")
-  }
 
   #Initialise the values
   x_vals <- df[,x_cols]
@@ -57,13 +53,13 @@ mutlicol_terminator <- function(df, x_cols, y_cols, alter_df = TRUE, cor_sig=0.9
   resultsdf <- data.frame(quantiles=quant, index=gg_len)
   resultsdf$quantile_range <- rownames(resultsdf)
   rownames(resultsdf) <- NULL
-  resultsdf$`Correlation cut off` <- ifelse(resultsdf$quantiles > cor_sig, 1,
+  resultsdf$corr_cut_off <- ifelse(resultsdf$quantiles > cor_sig, 1,
                                             ifelse(resultsdf$quantiles < -cor_sig,
                                                    1,0))
   # Create bar chart element
   plot_bar <- ggplot(data=resultsdf, aes(x=factor(quantile_range),
                                      y=quantiles)) +
-    geom_bar(stat="identity", aes(x=quantile_range, fill=`Correlation cut off`))+
+    geom_bar(stat="identity", aes(x=quantile_range, fill=corr_cut_off))+
     scale_x_discrete(limits=c("5%", "10%", "15%",
                               "20%", "25%", "30%",
                               "35%", "40%", "45%",

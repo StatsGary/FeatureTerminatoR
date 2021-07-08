@@ -1,0 +1,32 @@
+---
+title: "FeatureTerminatoR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{FeatureTerminatoR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<a href = "https://hutsons-hacks.info/"><img src="CopyOfFeatureTermHex.png" height="175px" width="225px" align="right"/></a>
+
+
+## Loading the packages
+
+To load the package, you can use the below command:
+
+```{r setup, message=FALSE, echo=TRUE}
+library(FeatureTerminatoR)
+library(caret)
+library(dplyr)
+library(tibble)
+library(stats)
+library(ggplot2)
+```
+

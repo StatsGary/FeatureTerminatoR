@@ -3,5 +3,6 @@
 export(rfeTerminator)
 import(caret)
 import(ggplot2)
+import(lattice)
 import(stats)
 importFrom(dplyr,tibble)

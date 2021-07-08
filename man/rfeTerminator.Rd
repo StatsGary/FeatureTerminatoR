@@ -54,8 +54,11 @@ This function is a wrapper for the \strong{rfe()} function
 With the df_alter set to TRUE the recursive feature algorithm chosen will automatically remove the features from the returned tibble embedded in the list.
 }
 \examples{
+\dontrun{
+
 library(caret)
 library(tibble)
+library(FeatureTerminatoR)
 library(dplyr)
 df <- iris
 # Passing in the indexes as slices x values located in index 1:4 and y value in location 5
@@ -75,6 +78,7 @@ print(rfe_fit$rfe_model_fit_results$optVariables)
 print(head(rfe_fit$rfe_original_data))
 # Explore the data adapted with the less important features removed
 print(head(rfe_fit$rfe_reduced_data))
+}
 }
 \references{
 Kuhn (2021) Recursive Feature Elimination. \url{https://topepo.github.io/caret/recursive-feature-elimination.html}
