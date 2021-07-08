@@ -30,3 +30,143 @@ library(stats)
 library(ggplot2)
 ```
 
+## Recursive Feature Elimination
+
+The trick to this is to use cross validation, or repeated cross validation, to eliminate n features from the model. This is achieved by fitting the model multiple times at each step, removing the weakest features, determining by either the coefficients in the model, or by the feature importance attributes in the model. 
+
+Within the package there is a number of different types you can utilise:
+
+* rfFuncs - this uses random forests method of assessing the mean decrease in accuracy over the features of interest i.e. the x (independent variables) and through the recursive nature of the algorithm looks at which IVs have the largest affect on the mean decrease in accuracy for the predicted y. The algorithm then purges the features with a low feature importance, those that have little effect on changing this accuracy metric. 
+* nbFuncs - this uses the naive bayes algorithm to assess those features that have the greatest affect on the overall probability of the dependent variable. Utilising the affect for the priori and the posterior. Naive is due to assuming all the variables in the model are equally as important at the outset of the test. 
+* treebagFuncs - explains how many times a variable occurs as decision node. The number of occurrence and the position of a given decision node in the tree give an indication of the importance of the respective predictor. The more often a variable occurs, and the closer a decision node is to the root node, the more important is the variable and the node, respectively. 
+* lmFuncs - sum of squared errors from the regression line, with the important variables being defined to have deviation outside of the expect gaussian distribution. 
+
+See the underlying [caretFuncs()](https://www.rdocumentation.org/packages/caret/versions/4.42/topics/caretFuncs) documentation.
+
+The model implements all these methods. I will utilise the random forest variable importance selection method, as this is quick to train on our test dataset.
+
+## Using the rfe_removeR function in FeatureTerminatoR
+
+The following steps will take you through how to use this function.
+
+### Loading the test data
+
+For the test data we will use the in built [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). 
+
+```{r setup_test_data}
+df <- iris
+print(head(df,10))
+```
+
+### Fitting a RFE method to the data
+Now is the time to use the workhouse function for the RFE (Recursive Feature Elimination) methods:
+```{r rfe_model_fit}
+#Passing in the indexes as slices x values located in index 1:4 and y value in location 5
+rfe_fit <- rfeTerminator(df, x_cols= 1:4, y_cols=5, alter_df = TRUE, eval_funcs = rfFuncs)
+#Passing by column name
+rfe_fit_col_name <- rfeTerminator(df, x_cols=1:4, y_cols="Species", alter_df=TRUE)
+# A further example
+ref_x_col_name <- rfeTerminator(df,
+                                x_cols=c("Sepal.Length", "Sepal.Width",
+                                        "Petal.Length", "Petal.Width"),
+                                y_cols = "Species")
+```
+This shows that it does not matter how you pass the data to the function, but the x column names need to be wrapped in a vector, as the further example highlights. Otherwise, you can simply pass the columns as a slice of the data frame. 
+
+### Exploring the model output results
+
+The model will select the best combination of values, with the sizes argument indicating the range of numeric features to retain. This defaults to an integer column slice between 1:10. 
+
+```{r rfe_model_fit_results}
+#Explore the optimal model results
+print(rfe_fit$rfe_model_fit_results)
+#View the optimum variables selected
+print(rfe_fit$rfe_model_fit_results$optVariables)
+```
+### Outputting the original and reduced data
+
+The following list type will retain the original data, with the `alter_df` argument indicating if the results should be outputted for manual evaluation of the backward elimination, or whether the data frame should be reduced. This could be the full data before a training / testing split, or on the training set, dependent on your ML pipeline strategy. 
+
+#### Viewing the original data
+
+To view the original data:
+```{r rfe_orig_data}
+#Explore the original data passed to the frame
+print(head(rfe_fit$rfe_original_data))
+```
+#### Obtaining the data after rfe termination
+Viewing the outputs post termination, you can observe that the features that have little bearing on the dependent (predicted variable) are terminated:
+```{r reduced_data}
+#Explore the data adapted with the less important features removed
+print(head(rfe_fit$rfe_reduced_data))
+
+```
+The features that do not have a significant impact have been removed from your model and this would surely speed up the ML or predictive model prior to training it. 
+
+Next, we move on to another feature selection method, this time we are utilising a correlation method to remove potential affects of `multicollinearity`.
+
+## Removing High Correlated Features - multicol_terminatoR
+
+The main reason you would want to do this is to avoid multicollinearity. This is an effect caused when there are high intercorrelations among two or more independent variables in linear models, this is not so much of a problem with non-linear models, such as trees, but can still cause high variance in the models, thus scaling of independent variables is always recommended. 
+
+### Why bother about multicollinearity?
+In general, multicollinearity can lead to wider confidence intervals that produce less reliable probabilities in terms of the effect of independent variables in a model. That is, the statistical inferences from a model with multicollinearity may not be dependable.
+
+Key takeaways:
+
+* Multicollinearity is a statistical concept where independent variables in a model are correlated.
+* Multicollinearity among independent variables will result in less reliable statistical inferences.
+* It is better to use independent variables that are not correlated or repetitive when building multiple regression models that use two or more variables.
+
+This is why you would want to remove highly correlated features. 
+
+### Getting started with the high correlation removal
+We already have our test data loaded in, and we will use the dataset from the previous example in this example. 
+
+```{r mult_co_fit}
+#Fit a model on the results and define a confidence cut off limit
+mc_term_fit <- FeatureTerminatoR::mutlicol_terminator(df, x_cols=1:4,
+                                   y_cols="Species",
+                                   alter_df=TRUE,
+                                   cor_sig = 0.90)
+
+```
+### Visualising the outputs
+
+Exploring the outputs:
+```{r visualise, fig.width=8, fig.height=6}
+# Visualise the quantile distributions of where the correlations lie
+mc_term_fit$corr_quant_chart
+
+```
+
+This shows that our cut off range starts at about the 85th percentile of the correlation distributions, at the top end. This would also work for strong negative associations. Here, we could probably be a little more strict in our 90% limit, but we will keep it at this for now, as we do not want to purge all the features. 
+
+### Viewing the raw correlation and covariance matrices
+This has been built into the tool for ease:
+```{r correlation_matrix}
+# View the correlation matrix
+mc_term_fit$corr_matrix
+# View the covariance matrix
+mc_term_fit$cov_matrix
+# View the quantile range
+mc_term_fit$corr_quantile #This excludes the diagonal correlations, as this would inflate the quantile distribution
+```
+There is some strong correlations between petal length and petal width, so these will be clipped by our choice of cut-off. 
+
+### Viewing the reduced data
+To get the outputs from the feature selection method, we use the following call to obtain the output tibble:
+
+```{r reduced_data_mc}
+# Get the removed and reduced data
+new_df_post_feature_removal <- mc_term_fit$feature_removed_df
+glimpse(new_df_post_feature_removal)
+```
+Here, the algorithm has removed a value based off the cut-off limit provided. 
+
+## Still to be included
+
+These algorithms will form the first version of the package, but still to be developed are:
+
+* Simulated Annealing methods - this is a probabilistic technique for approximating the global optimum of a given function. The name of the algorithm comes from annealing in metallurgy, a technique involving heating and controlled cooling of a material to increase the size of its crystals and reduce their defects.
+* Lasso Regression - a regularisation method that allows for the intercept to equal zero, meaning the variable is of very little, or no importance to the y^(hat) \hat{a} measure.

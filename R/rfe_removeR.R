@@ -18,7 +18,7 @@
 #' \item{\strong{"rfe_original_data"}}{ a data.frame object with the original data passed for manual exclusion based on fit outputs}
 #' \item{\strong{"rfe_reduced_data"}}{output of setting the alter_df=TRUE will remove the features / IVs from the data.frame}
 #' }
-#' @import caret stats
+#' @importFrom caret rfeControl rfe
 #' @importFrom dplyr tibble
 #' @export
 #' @encoding UTF-8
