@@ -7,14 +7,15 @@ Authors@R: c(
 Maintainer: Gary Hutson <hutsons-hacks@outlook.com>
 Description: This package takes in data.frame inputs and utilises methods, such as recursive feature engineering, to enable the features to be removed.
     What this does differently from the other packages, is that it gives you the choice to remove the variables manually, or it automated this process.
-License: GPL-3
+License: GPL (>= 3)
 Encoding: UTF-8
 Imports: 
     ggplot2,
     caret,
     tibble,
     dplyr,
-    stats
+    stats,
+    utils
 Suggests: 
     knitr,
     rmarkdown,
