@@ -1,7 +1,7 @@
 
 # FeatureTerminatoR - a package to perform feature engineering and automated termination of features of no predictive value 
 
-<a href = "https://hutsons-hacks.info/"><img src="man/figures/FeatureTermHex.png" height="175px" width="200px" align="right"/></a>
+<a href = "https://hutsons-hacks.info/"><img src="man/figures/FeatureTermHex.png" height="175px" width="225px" align="right"/></a>
 
   <!-- badges: start -->
  ![R-CMD-check](https://github.com/StatsGary/NHSDataDictionaRy/workflows/R-CMD-check/badge.svg)
