@@ -16,7 +16,8 @@ Imports:
     dplyr,
     stats,
     utils,
-    lattice
+    lattice,
+    e1071
 Suggests: 
     knitr,
     rmarkdown,

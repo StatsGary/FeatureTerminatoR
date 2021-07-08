@@ -15,9 +15,8 @@
 #' \item{\strong{"rfe_original_data"}}{ a data.frame object with the original data passed for manual exclusion based on fit outputs}
 #' \item{\strong{"rfe_reduced_data"}}{output of setting the alter_df=TRUE will remove the features / IVs from the data.frame}
 #' }
-#' @import caret ggplot2 lattice
+#' @import caret ggplot2
 #' @importFrom dplyr tibble
-#' @importFrom caret findCorrelation
 #' @importFrom stats cor quantile cov
 #' @export
 #' @references Allen (1997) The problem of Multicollinearity. In: Understanding Regression Analysis. Springer, Boston, MA. \url{https://doi.org/10.1007/978-0-585-25657-3_37}

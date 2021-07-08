@@ -56,17 +56,6 @@
 rfeTerminator <- function(df, x_cols, y_cols, method="cv", kfolds=10,
                           sizes = c(1:100), alter_df = TRUE, eval_funcs=rfFuncs, ...){
 
-  if (!is.data.frame(df) || df == ''){
-    stop("The input of df needs to be a data.frame object.")
-  }
-
-  if(x_cols == "" || length(x_cols)==0){
-    stop("Please enter either the index location of the independent variables to use.\nOr the column names passed as a vector()")
-  }
-
-  if(y_cols == "" || length(y_cols)==0){
-    stop("Please enter either the index location of the dependent variables to use.\nOr the column names passed as a vector()")
-  }
 
   ctrl <- caret::rfeControl(functions=eval_funcs,
                             method=method, number=kfolds)
