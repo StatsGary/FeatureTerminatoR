@@ -4,8 +4,7 @@
 #' @param x_cols The independent variables we want to analyse for multicollinearity (Allen, 1997).
 #' @param y_cols The dependent variables(s) in your predictive model
 #' @param alter_df \strong{Default=TRUE} - Determines whether the underlying features are removed from the data frame, with TRUE being the default.
-#' @param cor_sig \strong{Default=0.9} - A correlation significance for the cut-off in interfeature correlation
-#' @param ...
+#' @param cor_sig \strong{Default=0.9} - A correlation significance for the cut-off in inter-feature correlation
 #' @description This function looks at highly correlated features and allows for a correlation cutoff to be set.
 #' Outputs from this function allow for correlations and covariance matrices to be created, alongside visuals and the
 #' ability to remove highly correlated features from your statistic pipeline.
@@ -16,15 +15,18 @@
 #' \item{\strong{"rfe_original_data"}}{ a data.frame object with the original data passed for manual exclusion based on fit outputs}
 #' \item{\strong{"rfe_reduced_data"}}{output of setting the alter_df=TRUE will remove the features / IVs from the data.frame}
 #' }
-#' @import caret stats ggplot
+#' @import caret stats ggplot2
 #' @importFrom dplyr tibble
-#' @references Allen (1997) The problem of multicollinearity. In: Understanding Regression Analysis. Springer, Boston, MA. \url{https://doi.org/10.1007/978-0-585-25657-3_37}
+#' @references Allen (1997) The problem of Multicollinearity. In: Understanding Regression Analysis. Springer, Boston, MA. \url{https://doi.org/10.1007/978-0-585-25657-3_37}
 #' @examples
 #'library(caret)
 #'library(tibble)
 #'library(dplyr)
+#'df <- iris
+#'results <- mutlicol_terminator(df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
+# print(results) #Prints out the full list of results
 
-mutlicol_terminator <- function(df, x_cols, y_cols, alter_df = TRUE, cor_sig=0.9, ...){
+mutlicol_terminator <- function(df, x_cols, y_cols, alter_df = TRUE, cor_sig=0.9){
 
   if (!is.data.frame(df) || df == ''){
     stop("The input of df needs to be a data.frame object.")
@@ -106,9 +108,7 @@ mutlicol_terminator <- function(df, x_cols, y_cols, alter_df = TRUE, cor_sig=0.9
 }
 
 
-test_df <- iris
-results <- mutlicol_terminator(test_df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
-results
+
 
 
 
