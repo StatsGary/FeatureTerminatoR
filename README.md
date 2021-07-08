@@ -30,3 +30,6 @@ To install the package from GitHub use the below:
 remotes::install_github("https://github.com/StatsGary/FeatureTerminatoR")
 
 ```
+
+## Learn How To Use The Package
+To learn how to use the package, go specifically to the associated [vignette](https://rpubs.com/StatsGary/FeatureTerminatoR) to learn how to work with the tool. This will show you the inbuilt functionality for feature engineering and how to use the package. 
