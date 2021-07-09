@@ -9,7 +9,7 @@ mutlicol_terminator(df, x_cols, y_cols, alter_df = TRUE, cor_sig = 0.9)
 \arguments{
 \item{df}{The data frame to pass with the x and y variables}
 
-\item{x_cols}{The independent variables we want to analyse for multicollinearity (Allen, 1997).}
+\item{x_cols}{The independent variables we want to analyse for multicollinearity}
 
 \item{y_cols}{The dependent variables(s) in your predictive model}
 
@@ -19,7 +19,7 @@ mutlicol_terminator(df, x_cols, y_cols, alter_df = TRUE, cor_sig = 0.9)
 }
 \value{
 A list containing the outputs highlighted hereunder:
-\itemize{
+\itemize{det
 \item{\strong{"rfe_model_fit_results"}}{ a list of the model fit results. Including the optimal features}
 \item{\strong{"rfe_reduced_features"}}{ a data.frame object with the reduced variables and data}
 \item{\strong{"rfe_original_data"}}{ a data.frame object with the original data passed for manual exclusion based on fit outputs}
@@ -40,7 +40,4 @@ library(dplyr)
 df <- iris
 results <- mutlicol_terminator(df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
 }
-}
-\references{
-Allen (1997) The problem of Multicollinearity. In: Understanding Regression Analysis. Springer, Boston, MA. \doi{https://doi.org/10.1007/978-0-585-25657-3_37}
 }

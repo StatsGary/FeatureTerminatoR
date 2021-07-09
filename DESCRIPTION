@@ -21,9 +21,8 @@ Imports:
     randomForest
 Suggests: 
     knitr,
-    rmarkdown,
-    spelling
-LazyData: false
-RoxygenNote: 7.1.1
+    markdown,
+    rmarkdown
+LazyData: FALSE
 VignetteBuilder: knitr
-Language: en-US
+RoxygenNote: 7.1.13
