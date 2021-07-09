@@ -42,5 +42,5 @@ results <- mutlicol_terminator(df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
 }
 }
 \references{
-Allen (1997) The problem of Multicollinearity. In: Understanding Regression Analysis. Springer, Boston, MA. \url{https://doi.org/10.1007/978-0-585-25657-3_37}
+Allen (1997) The problem of Multicollinearity. In: Understanding Regression Analysis. Springer, Boston, MA. \doi{https://doi.org/10.1007/978-0-585-25657-3_37}
 }

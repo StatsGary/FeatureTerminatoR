@@ -1,11 +1,11 @@
 Package: FeatureTerminatoR
 Type: Package
-Title: Feature Selection Engine To Remove Features With Minimal Predictive Power
+Title: Feature Selection Engine to Remove Features with Minimal Predictive Power
 Version: 1.0.0
 Authors@R: c(
-          person("Gary", "Hutson", , "g.hutson@nhs.net", c("aut", "cre"), comment = c(ORCID="0000-0003-3534-6143")))
+          person("Gary", "Hutson", , "hutsons-hacks@outlook.com", c("aut", "cre"), comment = c(ORCID="0000-0003-3534-6143")))
 Maintainer: Gary Hutson <hutsons-hacks@outlook.com>
-Description: This package takes in data.frame inputs and utilises methods, such as recursive feature engineering, to enable the features to be removed.
+Description: The aim is to take in data.frame inputs and utilises methods, such as recursive feature engineering, to enable the features to be removed.
     What this does differently from the other packages, is that it gives you the choice to remove the variables manually, or it automated this process.
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
@@ -17,7 +17,8 @@ Imports:
     stats,
     utils,
     lattice,
-    e1071
+    e1071, 
+    randomForest
 Suggests: 
     knitr,
     rmarkdown,

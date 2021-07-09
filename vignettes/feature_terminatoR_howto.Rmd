@@ -26,6 +26,7 @@ library(FeatureTerminatoR)
 library(caret)
 library(dplyr)
 library(ggplot2)
+library(randomForest)
 ```
 
 ## Recursive Feature Elimination

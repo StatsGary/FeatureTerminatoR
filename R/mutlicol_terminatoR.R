@@ -1,7 +1,7 @@
 #' Multicollinearity TerminatoR - Feature Selection to remove highly correlated values
 #'
 #' @param df The data frame to pass with the x and y variables
-#' @param x_cols The independent variables we want to analyse for multicollinearity (Allen, 1997).
+#' @param x_cols The independent variables we want to analyse for multicollinearity
 #' @param y_cols The dependent variables(s) in your predictive model
 #' @param alter_df \strong{Default=TRUE} - Determines whether the underlying features are removed from the data frame, with TRUE being the default.
 #' @param cor_sig \strong{Default=0.9} - A correlation significance for the cut-off in inter-feature correlation
@@ -9,7 +9,7 @@
 #' Outputs from this function allow for correlations and covariance matrices to be created, alongside visuals and the
 #' ability to remove highly correlated features from your statistic pipeline.
 #' @return A list containing the outputs highlighted hereunder:
-#' \itemize{
+#' \itemize{det
 #' \item{\strong{"rfe_model_fit_results"}}{ a list of the model fit results. Including the optimal features}
 #' \item{\strong{"rfe_reduced_features"}}{ a data.frame object with the reduced variables and data}
 #' \item{\strong{"rfe_original_data"}}{ a data.frame object with the original data passed for manual exclusion based on fit outputs}
@@ -19,7 +19,6 @@
 #' @importFrom dplyr tibble
 #' @importFrom stats cor quantile cov
 #' @export
-#' @references Allen (1997) The problem of Multicollinearity. In: Understanding Regression Analysis. Springer, Boston, MA. \url{https://doi.org/10.1007/978-0-585-25657-3_37}
 #' @examples
 #' \dontrun{
 #'library(caret)
@@ -32,11 +31,6 @@
 #'}
 
 mutlicol_terminator <- function(df, x_cols, y_cols, alter_df = TRUE, cor_sig=0.9){
-
-  if (!is.data.frame(df) || df == ''){
-    stop("The input of df needs to be a data.frame object.")
-  }
-
 
   #Initialise the values
   x_vals <- df[,x_cols]
