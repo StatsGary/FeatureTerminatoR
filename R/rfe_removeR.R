@@ -26,8 +26,6 @@
 #' With the df_alter set to TRUE the recursive feature algorithm chosen will automatically remove the features from the returned tibble embedded in the list.
 #' @references Kuhn (2021) Recursive Feature Elimination. \url{https://topepo.github.io/caret/recursive-feature-elimination.html}
 #' @examples
-#' \dontrun{
-#'
 #'library(caret)
 #'library(tibble)
 #'library(FeatureTerminatoR)
@@ -50,7 +48,6 @@
 #'print(head(rfe_fit$rfe_original_data))
 #'# Explore the data adapted with the less important features removed
 #'print(head(rfe_fit$rfe_reduced_data))
-#'}
 
 
 rfeTerminator <- function(df, x_cols, y_cols, method="cv", kfolds=10,

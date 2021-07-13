@@ -20,15 +20,17 @@
 #' @importFrom stats cor quantile cov
 #' @export
 #' @examples
-#' \dontrun{
 #'library(caret)
 #'library(FeatureTerminatoR)
 #'library(tibble)
 #'library(dplyr)
 #'df <- iris
-#'results <- mutlicol_terminator(df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
-# print(results) #Prints out the full list of results
-#'}
+#'mc_fit <- mutlicol_terminator(df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
+#'#View the correlation matrix
+#'mc_fit$corr_matrix
+#'#View the reduced data
+#'head(mc_fit$feature_removed_df,10)
+
 
 mutlicol_terminator <- function(df, x_cols, y_cols, alter_df = TRUE, cor_sig=0.9){
 

@@ -32,12 +32,14 @@ Outputs from this function allow for correlations and covariance matrices to be 
 ability to remove highly correlated features from your statistic pipeline.
 }
 \examples{
-\dontrun{
 library(caret)
 library(FeatureTerminatoR)
 library(tibble)
 library(dplyr)
 df <- iris
-results <- mutlicol_terminator(df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
-}
+mc_fit <- mutlicol_terminator(df, 1:4,5, cor_sig = 0.90, alter_df = TRUE)
+#View the correlation matrix
+mc_fit$corr_matrix
+#View the reduced data
+head(mc_fit$feature_removed_df,10)
 }
