@@ -61,13 +61,6 @@ library(dplyr)
 df <- iris
 # Passing in the indexes as slices x values located in index 1:4 and y value in location 5
 rfe_fit <- rfeTerminator(df, x_cols= 1:4, y_cols=5, alter_df = TRUE, eval_funcs = rfFuncs)
-# Passing by column name
-rfe_fit_col_name <- rfeTerminator(df, x_cols=1:4, y_cols="Species", alter_df=TRUE)
-# Further example
-ref_x_col_name <- rfeTerminator(df,
-                               x_cols=c("Sepal.Length", "Sepal.Width",
-                                        "Petal.Length", "Petal.Width"),
-                               y_cols = "Species")
 #Explore the optimal model results
 print(rfe_fit$rfe_model_fit_results)
 # Explore the optimal variables selected

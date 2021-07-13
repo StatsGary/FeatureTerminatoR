@@ -20,9 +20,7 @@
   * Windows Server 2008 R2 SP1, R-devel, 32/64 bit
 
 ## R CMD check results
-There were no ERRORs or WARNINGs.
-
-NOTE 'qpdf' is needed for checks on size reduction of PDFs. This is a known problem with R version and does not present on other testing platforms. 
+There were no ERRORs or WARNINGs. 1 note stating possible mispelling of Reference paper author, which is the correct spelling.
 
 
 ## Downstream dependencies
