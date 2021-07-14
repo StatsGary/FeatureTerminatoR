@@ -5,11 +5,12 @@
 
  <!-- badges: start -->
   [![R-CMD-check](https://github.com/StatsGary/FeatureTerminatoR/workflows/R-CMD-check/badge.svg)](https://github.com/StatsGary/FeatureTerminatoR/actions)
+  [![FeatureTerminatoR: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
   [![CRAN status](https://www.r-pkg.org/badges/version/FeatureTerminatoR)](https://CRAN.R-project.org/package=FeatureTerminatoR)
   [![](https://cranlogs.r-pkg.org/badges/FeatureTerminatoR)](https://cran.r-project.org/package=FeatureTerminatoR)
   ![GitHub last commit](https://img.shields.io/github/last-commit/StatsGary/FeatureTerminatoR)
   [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/StatsGary/FeatureTerminatoR/main)
-  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/StatsGary/FeatureTerminatoR?branch=main&svg=true)](https://ci.appveyor.com/project/StatsGary/FeatureTerminatoR)
+(https://ci.appveyor.com/project/StatsGary/FeatureTerminatoR)
   
   <!-- adges: end -->
   
