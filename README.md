@@ -10,7 +10,6 @@
   [![](https://cranlogs.r-pkg.org/badges/FeatureTerminatoR)](https://cran.r-project.org/package=FeatureTerminatoR)
   ![GitHub last commit](https://img.shields.io/github/last-commit/StatsGary/FeatureTerminatoR)
   [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/StatsGary/FeatureTerminatoR/main)
-(https://ci.appveyor.com/project/StatsGary/FeatureTerminatoR)
   
   <!-- adges: end -->
   
