@@ -7,6 +7,7 @@
   [![R-CMD-check](https://github.com/StatsGary/FeatureTerminatoR/workflows/R-CMD-check/badge.svg)](https://github.com/StatsGary/FeatureTerminatoR/actions)
   [![CRAN status](https://www.r-pkg.org/badges/version/FeatureTerminatoR)](https://CRAN.R-project.org/package=FeatureTerminatoR)
   [![](https://cranlogs.r-pkg.org/badges/FeatureTerminatoR)](https://cran.r-project.org/package=FeatureTerminatoR)
+  ![GitHub last commit](https://img.shields.io/github/last-commit/StatsGary/FeatureTerminatoR)
   <!-- badges: end -->
   
   
