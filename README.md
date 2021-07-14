@@ -30,11 +30,22 @@ remotes::install_github("https://github.com/StatsGary/FeatureTerminatoR")
 
 ```
 
+### CRAN
+
+To install the package from CRAN use the following command:
+
+``` r
+#install.packages("FeatureTerminatoR")
+```
+
 ## Loading the package
 To load the package into your R environmnet you need to use the below code:
 ``` r
 library(FeatureTerminatoR)
 ```
+
+## Using the Recursive Feature Engineering Terminator (rfeTerminator)
+We will use a novel example of utilising the package to perform recursive feature engineering on the 
 
 
 ## Learn How To Use The Package
