@@ -9,6 +9,7 @@
   [![](https://cranlogs.r-pkg.org/badges/FeatureTerminatoR)](https://cran.r-project.org/package=FeatureTerminatoR)
   ![GitHub last commit](https://img.shields.io/github/last-commit/StatsGary/FeatureTerminatoR)
   [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/StatsGary/FeatureTerminatoR/main)
+  [![BioC status](http://www.bioconductor.org/shields/build/release/bioc/FeatureTerminatoR.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/FeatureTerminatoR)
   <!-- badges: end -->
   
   
