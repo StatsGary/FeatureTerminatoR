@@ -5,7 +5,7 @@
 
  <!-- badges: start -->
   [![R-CMD-check](https://github.com/StatsGary/FeatureTerminatoR/workflows/R-CMD-check/badge.svg)](https://github.com/StatsGary/FeatureTerminatoR/actions)
-  [![CRAN status](https://www.r-pkg.org/badges/version/FeatureTerminatoR)](https://CRAN.R-project.org/package=FeatureTerminatoR) 
+  [![CRAN status](https://www.r-pkg.org/badges/version/FeatureTerminatoR)](https://CRAN.R-project.org/package=FeatureTerminatoR)
   <!-- badges: end -->
   
   
