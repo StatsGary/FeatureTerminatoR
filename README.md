@@ -45,7 +45,16 @@ library(FeatureTerminatoR)
 ```
 
 ## Using the Recursive Feature Engineering Terminator (rfeTerminator)
-We will use a novel example of utilising the package to perform recursive feature engineering on the 
+We will use a novel example of utilising the package to perform recursive feature engineering on the iris dataset:
+``` r
+library(caret)
+library(tidyverse)
+df <- iris
+print(head(df,10))
+# Fitting the model
+rfe_fit <- rfeTerminator(df, x_cols= 1:4, y_cols=5, alter_df = TRUE, eval_funcs = rfFuncs)
+```
+At this point the model is now fitted to the data and has looked at the random forest variable importance i.e. mean decrease on accuracy in relation to the variables interaction and effect on the y variable. This will remove any variables with minimal predictive power. The next step is to examine the model outputs. 
 
 
 ## Learn How To Use The Package
