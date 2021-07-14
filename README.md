@@ -55,6 +55,16 @@ print(head(df,10))
 rfe_fit <- rfeTerminator(df, x_cols= 1:4, y_cols=5, alter_df = TRUE, eval_funcs = rfFuncs)
 ```
 At this point the model is now fitted to the data and has looked at the random forest variable importance i.e. mean decrease on accuracy in relation to the variables interaction and effect on the y variable. This will remove any variables with minimal predictive power. The next step is to examine the model outputs. 
+``` r
+#Explore the optimal model results
+print(rfe_fit$rfe_model_fit_results)
+#View the optimum variables selected
+print(rfe_fit$rfe_model_fit_results$optVariables)
+#Explore the original data passed to the frame
+print(head(rfe_fit$rfe_original_data))
+print(head(rfe_fit$rfe_reduced_data))
+```
+The reduced data is the dataset with the features removed, however the tool recommends the features to remove, so this can be done automated or manually. 
 
 
 ## Learn How To Use The Package
