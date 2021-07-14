@@ -38,3 +38,7 @@ library(FeatureTerminatoR)
 ## Learn How To Use The Package
 To learn how to use the package, go specifically to the associated [vignette](https://rpubs.com/StatsGary/FeatureTerminatoR) to learn how to work with the tool. This will show you the inbuilt functionality for feature engineering and how to use the package. 
 
+## Code of Conduct
+  
+Please note that the FeatureTerminatoR project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
