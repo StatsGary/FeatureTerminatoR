@@ -53,6 +53,8 @@ The following steps will take you through how to use this function.
 For the test data we will use the in built [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). 
 
 ```{r setup_test_data}
+library(caret)
+library(tidyverse)
 df <- iris
 print(head(df,10))
 ```

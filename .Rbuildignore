@@ -13,3 +13,4 @@ inst/examples/cache
 cran-comments.md
 ^doc$
 ^Meta$
+^CODE_OF_CONDUCT\.md$
