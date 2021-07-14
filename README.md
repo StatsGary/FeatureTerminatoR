@@ -11,7 +11,7 @@
   ![GitHub last commit](https://img.shields.io/github/last-commit/StatsGary/FeatureTerminatoR)
   [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/StatsGary/FeatureTerminatoR/main)
   
-  <!-- adges: end -->
+  <!-- badges: end -->
   
   
 The goal of this package is to provide a common set of functions for working with NHS Data Dictionary look up tables. 
