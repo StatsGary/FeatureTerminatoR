@@ -44,7 +44,7 @@ To load the package into your R environmnet you need to use the below code:
 library(FeatureTerminatoR)
 ```
 
-## Using the Recursive Feature Engineering Terminator (rfeTerminator)
+## Using the Recursive Feature Ellimination Terminator (rfeTerminator)
 We will use a novel example of utilising the package to perform recursive feature engineering on the iris dataset:
 ``` r
 library(caret)
